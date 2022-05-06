@@ -1,15 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import React, { useState } from "react";
+import MapView from "react-native-maps";
+import * as ScreenOrientation from "expo-screen-orientation";
+
 export default function App() {
+  const [orientationIsLandscape, setOrientation] = useState(true);
   return (
     <View style={styles.container}>
       <View style={styles.semiContainer1}>
         <View style = {styles.consolbar}></View>
         <View style = {styles.mapContainer}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 37.489361620873,
+            longitude: 127.05489077402,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
         </View>
-
       </View>
       <View style={styles.semiContainer2}><Text>PLAYERBAR</Text>
         <View style = {styles.playContainer}></View>
@@ -17,6 +29,7 @@ export default function App() {
         <View style = {styles.playContainer}></View>
       </View>
       <StatusBar style="auto" />
+      
     </View>
   );
 }
@@ -52,5 +65,8 @@ const styles = StyleSheet.create({
   mapContainer : {
     flex: 0.8,
     backgroundColor : 'blue',
+  }, 
+  map:{
+    flex: 1,
   }
 });
