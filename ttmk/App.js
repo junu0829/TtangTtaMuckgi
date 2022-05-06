@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     alignItems: 'center',
     justifyContent: 'center',
-    padding : 5,
   },
   semiContainer1: {
     flex : 0.8,
